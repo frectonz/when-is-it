@@ -1,0 +1,2 @@
+Current datetime: [[TIME]]
+User input: [[INPUT]]
