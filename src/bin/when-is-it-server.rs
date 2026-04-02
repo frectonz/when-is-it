@@ -194,9 +194,7 @@ async fn main() -> color_eyre::Result<()> {
         .wrap_err("failed to bind")?;
 
     eprintln!("listening on {}", cli.listen);
-    axum::serve(listener, app)
-        .await
-        .wrap_err("server error")?;
+    axum::serve(listener, app).await.wrap_err("server error")?;
 
     Ok(())
 }

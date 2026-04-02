@@ -8,7 +8,11 @@ struct Cli {
     query: String,
 
     /// Ollama URL
-    #[arg(long, default_value = "http://localhost:11434", env = "WHEN_IS_IT_OLLAMA_URL")]
+    #[arg(
+        long,
+        default_value = "http://localhost:11434",
+        env = "WHEN_IS_IT_OLLAMA_URL"
+    )]
     ollama_url: String,
 
     /// Ollama model to use
