@@ -2559,7 +2559,7 @@ dependencies = [
 
 [[package]]
 name = "when-is-it"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "axum",
  "clap",
