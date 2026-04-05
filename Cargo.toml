@@ -8,6 +8,7 @@ repository = "https://github.com/frectonz/when-is-it"
 axum = { version = "0.8.8", features = ["tracing", "macros"] }
 clap = { version = "4.6.0", features = ["derive", "env"] }
 color-eyre = "0.6.5"
+dotenvy = "0.15.7"
 hex = "0.4.3"
 hmac = "0.13.0"
 jiff = "0.2.23"

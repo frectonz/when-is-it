@@ -1,5 +1,5 @@
 use clap::Parser;
-use when_is_it::TimeAgent;
+use when_is_it::{TimeAgent, load_env_file};
 
 #[derive(Parser)]
 #[command(about = "Convert times between timezones using natural language")]
@@ -23,6 +23,7 @@ struct Cli {
 #[tokio::main]
 async fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
+    load_env_file();
     let cli = Cli::parse();
     let agent = TimeAgent::new(&cli.ollama_url, &cli.model)?;
     let conversion = agent.convert(&cli.query).await?;

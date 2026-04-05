@@ -109,3 +109,10 @@ impl TimeAgent {
         }
     }
 }
+
+pub fn load_env_file() {
+    match dotenvy::dotenv() {
+        Ok(path) => println!("Loaded .env from {:?}", path),
+        Err(_) => {}
+    }
+}

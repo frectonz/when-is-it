@@ -10,7 +10,7 @@ use axum::{
 use clap::Parser;
 use color_eyre::eyre::Context;
 use serde::{Deserialize, Serialize};
-use when_is_it::{Error as AgentError, TimeAgent};
+use when_is_it::{Error as AgentError, TimeAgent, load_env_file};
 
 #[derive(Serialize)]
 struct ErrorResponse {
@@ -178,6 +178,7 @@ async fn convert(
 #[tokio::main]
 async fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
+    load_env_file();
     let cli = Cli::parse();
     let agent = TimeAgent::new(&cli.ollama_url, &cli.model)?;
     let state = AppState {

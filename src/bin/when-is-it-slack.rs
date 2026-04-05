@@ -12,7 +12,7 @@ use color_eyre::eyre::Context;
 use hmac::{Hmac, KeyInit, Mac};
 use serde::{Deserialize, Serialize};
 use sha2::Sha256;
-use when_is_it::TimeAgent;
+use when_is_it::{TimeAgent, load_env_file};
 
 #[derive(Parser)]
 #[command(about = "Slack bot for time conversion")]
@@ -159,6 +159,7 @@ async fn slash_command(
 #[tokio::main]
 async fn main() -> color_eyre::Result<()> {
     color_eyre::install()?;
+    load_env_file();
     let cli = Cli::parse();
     let agent = TimeAgent::new(&cli.ollama_url, &cli.model)?;
 
